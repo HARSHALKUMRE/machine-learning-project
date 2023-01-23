@@ -23,3 +23,25 @@ Install the requirements file using this command
 ```
 pip install -r requirements.txt
 ```
+
+To add files to git repositories
+```
+git add .
+```
+
+OR
+```
+git add <file_name>
+```
+
+> Note: To ignore file on folder from git we can write name of file/folder in .gitignore file
+
+To check the git status
+```
+git status
+```
+
+To check all version maintained by git
+```
+git log
+```
