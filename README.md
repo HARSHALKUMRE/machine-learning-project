@@ -63,9 +63,9 @@ git remote -v
 ```
 To setup CI/CD pipeline in heroku we need 3 information
 
-1. HEROKU_EMAIL = 
-2. HEROKU_API_KEY = 
-3. HEROKU_APP_NAME = 
+1. HEROKU_EMAIL = <HEROKU_EMAIL>
+2. HEROKU_API_KEY = <HEROKU_API_KEY>
+3. HEROKU_APP_NAME = <HEROKU_APP_NAME>
 
 Build docker image
 ```
@@ -91,4 +91,9 @@ docker ps
 To stop docker container
 ```
 docker stop <container_id>
+```
+
+To Run setup file 
+```
+python setup.py install
 ```
