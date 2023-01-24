@@ -2,6 +2,6 @@ numpy
 Flask
 gunicorn
 typing
-sklearn
+scikit-learn
 pandas
 -e .
