@@ -4,3 +4,4 @@ gunicorn
 typing
 sklearn
 pandas
+-e .
