@@ -4,4 +4,5 @@ gunicorn
 typing
 scikit-learn
 pandas
+PyYAML
 -e .
