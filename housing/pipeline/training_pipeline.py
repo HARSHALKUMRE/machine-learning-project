@@ -12,6 +12,7 @@ class TrainingPipeline:
     def __init__(self, config: Configuration = Configuration()) -> None:
         try:
             self.config = config
+            
         except Exception as e:
             raise HousingException(e,sys) from e
         
@@ -25,38 +26,23 @@ class TrainingPipeline:
             raise HousingException(e,sys) from e
         
     def start_data_validation(self):
-        try:
-            pass
-        except Exception as e:
-            raise HousingException(e,sys) from e
+        pass
         
     def start_data_transformation(self):
-        try:
-            pass
-        except Exception as e:
-            raise HousingException(e,sys) from e
+        pass
         
     def start_model_trainer(self):
-        try:
-            pass
-        except Exception as e:
-            raise HousingException(e,sys) from e
+        pass
         
     def start_model_evaluation(self):
-        try:
-            pass
-        except Exception as e:
-            raise HousingException(e,sys) from e  
-        
+        pass
+       
     def start_model_pusher(self):
-        try:
-            pass
-        except Exception as e:
-            raise HousingException(e,sys) from e  
+        pass
         
     def run_pipeline(self):
         try:
-            # data ingestion
+            #data ingestion
             
             data_ingestion_artifact = self.start_data_ingestion()
         except Exception as e:
