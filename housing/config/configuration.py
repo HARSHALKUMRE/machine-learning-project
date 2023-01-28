@@ -63,7 +63,12 @@ class Configuration:
     
     def get_data_validation_config(self) -> DataValidationConfig:
         try:
-            pass
+            schema_file_path = None
+            data_validation_config = DataValidationConfig(
+                schema_file_path=schema_file_path
+            )
+            logging.info(f"Data Validation config: {data_validation_config}")
+            return data_validation_config
         except Exception as e:
             raise HousingException(e,sys) from e
     
