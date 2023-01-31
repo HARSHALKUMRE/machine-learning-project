@@ -5,4 +5,5 @@ typing
 scikit-learn
 pandas
 PyYAML
+evidently
 -e .

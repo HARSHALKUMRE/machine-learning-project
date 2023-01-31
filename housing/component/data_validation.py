@@ -3,6 +3,8 @@ from housing.logger import logging
 from housing.entity.config_entity import DataValidationConfig
 from housing.entity.artifact_entity import DataIngestionArtifact
 import os,sys
+from evidently.model_profile import Profile
+from evidently.model_profile.sections import DataDriftProfileSection
 
 class DataValidation:
     
@@ -60,11 +62,27 @@ class DataValidation:
         except Exception as e:
             raise HousingException(e,sys) from e
         
+        
+    def save_data_drift_report(self):
+        try:
+            pass
+        except Exception as e:
+            raise HousingException(e,sys)
+    
+    def save_data_drift_report_page(self):
+        pass
+        
+    def is_data_drift_found(self):
+        try:
+            pass
+        except Exception as e:
+            raise HousingException(e,sys)
+        
+        
     def initiate_data_validation(self):
         try:
             self.is_train_test_file_exists()
             self.validate_dataset_schema()
-            
-            
+            self.is_data_drift_found()
         except Exception as e:
             raise HousingException(e,sys) from e
