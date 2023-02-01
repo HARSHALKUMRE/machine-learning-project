@@ -108,3 +108,4 @@ Data Drift:-
 When the dataset of stats is change then it is called as data drift.
 ```
 
+### Write a function to get training file path from artifact dir
