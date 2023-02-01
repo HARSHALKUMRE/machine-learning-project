@@ -5,10 +5,10 @@ from housing.config.configuration import Configuration
 
 def main():
     try:
-        #training_pipeline = TrainingPipeline()
-        #training_pipeline.run_pipeline()
-        data_validation_config = Configuration().get_data_validation_config()
-        print(data_validation_config)
+        training_pipeline = TrainingPipeline()
+        training_pipeline.run_pipeline()
+        #data_validation_config = Configuration().get_data_validation_config()
+        #print(data_validation_config)
         
     except Exception as e:
         logging.error(f"{e}")
