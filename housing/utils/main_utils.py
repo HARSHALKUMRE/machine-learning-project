@@ -2,7 +2,9 @@ import yaml
 from housing.exception import HousingException
 import os,sys
 import numpy as np
+import pandas as pd
 import dill
+from housing.constant import *
 
 def read_yaml_file(file_path:str) -> dict:
     """
@@ -58,3 +60,36 @@ def save_object(file_path: str, obj):
             dill.dump(obj, file_obj)
     except Exception as e:
         raise HousingException(e, sys) from e
+    
+def load_object(file_path: str):
+    """
+    file_path : str
+    """
+    try:
+        with open(file_path, 'rb') as file_obj:
+            return dill.load(file_obj)
+        
+    except Exception as e:
+        raise HousingException(e, sys) from e
+    
+def load_data(file_path: str, schema_file_path: str) -> pd.DataFrame:
+    try:
+        dataset_schema = read_yaml_file(schema_file_path)
+        
+        schema = dataset_schema[DATASET_SCHEMA_COLUMNS_KEY]
+            
+        dataframe = pd.read_csv(file_path)
+            
+        error_message = ""
+            
+        for column in dataframe.columns:
+            if column in list(schema.keys()):
+                dataframe[column].astype(schema[column])
+            else:
+                error_message = f"{error_message} \nColumn: [{column}] is not in the schema."
+        if len(error_message) > 0:
+            raise Exception(error_message)
+        return dataframe
+    except Exception as e:
+        raise HousingException(e, sys) from e
+    
