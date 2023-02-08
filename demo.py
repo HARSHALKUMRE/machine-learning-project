@@ -19,6 +19,9 @@ def main():
         #print(df.columns)
         #print(df.dtypes)
         
+        #model_trainer_config = Configuration().get_model_trainer_config()
+        #print(model_trainer_config)
+        
     except Exception as e:
         logging.error(f"{e}")
         print(e)
