@@ -88,26 +88,34 @@ class TrainingPipeline:
         
     def run_pipeline(self):
         try:
-            #data ingestion
-            
+            # data ingestion
             data_ingestion_artifact = self.start_data_ingestion()
+            
+            # data validation
             data_validation_artifact = self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
+            
+            # data transformation
             data_transformation_artifact = self.start_data_transformation(
                 data_ingestion_artifact=data_ingestion_artifact,
                 data_validation_artifact=data_validation_artifact
                 )
+
+            # model trainer
             model_trainer_artifact = self.start_model_trainer(
                 data_transformation_artifact=data_transformation_artifact
             )
+
+            # model evaluation
             model_evaluation_artifact = self.start_model_evaluation(
                 data_ingestion_artifact=data_ingestion_artifact,
                 data_validation_artifact=data_validation_artifact,
                 model_trainer_artifact=model_trainer_artifact
             )
+
+            # model pusher
             model_pusher_artifact = self.start_model_pusher(
                 model_evaluation_artifact=model_evaluation_artifact
             )
         except Exception as e:
             raise HousingException(e,sys) from e
         
-    

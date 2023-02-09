@@ -65,7 +65,7 @@ class ModelEvaluation:
                 model_history = {self.model_evaluation_config.time_stamp: previous_best_model}
                 if HISTORY_KEY not in model_eval_content:
                     history = {HISTORY_KEY: model_history}
-                    eval_result.upadate(history)
+                    eval_result.update(history)
                 else:
                     model_eval_content[HISTORY_KEY].update(model_history)
 

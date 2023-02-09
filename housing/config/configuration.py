@@ -207,7 +207,7 @@ class Configuration:
             model_pusher_config_info = self.config_info[MODEL_PUSHER_CONFIG_KEY]
             export_dir_path = os.path.join(
                 ROOT_DIR,
-                model_pusher_config_info[MODEL_PUSHER_EXPORT_DIR_KEY],
+                model_pusher_config_info[MODEL_PUSHER_EXPORT_MODEL_DIR_KEY],
                 time_stamp
             )
             model_pusher_config=ModelPusherConfig(
