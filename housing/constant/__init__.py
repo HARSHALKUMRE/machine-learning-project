@@ -71,6 +71,15 @@ MODEL_EVALUATION_CONFIG_KEY = "model_evaluation_config"
 MODEL_EVALUATION_ARTIFACT_DIR = "model_evaluation"
 MODEL_EVALUATION_FILE_NAME_KEY = "model_evaluation_file_name"
  
+BEST_MODEL_KEY = "best_model"
+HISTORY_KEY = "history"
+MODEL_PATH_KEY = "model_path"
+
+# Model Pusher related constant or variables
+MODEL_PUSHER_CONFIG_KEY = "model_pusher_config"
+MODEL_PUSHER_ARTIFACT_DIR = "model_pusher"
+MODEL_PUSHER_MODEL_DIR_KEY = "model_export_dir"
+
 
 
 

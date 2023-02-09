@@ -184,9 +184,8 @@ class Configuration:
             model_evaluation_artifact_dir = os.path.join(
                 artifact_dir,
                 MODEL_EVALUATION_ARTIFACT_DIR,
-                self.time_stamp
             )
-            model_evaluation_config_info = self.config[MODEL_EVALUATION_CONFIG_KEY]
+            model_evaluation_config_info = self.config_info[MODEL_EVALUATION_CONFIG_KEY]
             
             model_evaluation_file_path = os.path.join(
                 model_evaluation_artifact_dir,
@@ -194,7 +193,8 @@ class Configuration:
             )
             
             model_evaluation_config=ModelEvaluationConfig(
-                model_evaluation_file_path=model_evaluation_file_path
+                model_evaluation_file_path=model_evaluation_file_path,
+                time_stamp=self.time_stamp
             )
             logging.info(f"Model Evaluation Config: {model_evaluation_config}")
             return model_evaluation_config
@@ -203,7 +203,18 @@ class Configuration:
     
     def get_model_pusher_config(self) -> ModelPusherConfig:
         try:
-            pass
+            time_stamp = f"{datetime.now().strftime('%Y%m%d%H%M%S')}"
+            model_pusher_config_info = self.config_info[MODEL_PUSHER_CONFIG_KEY]
+            export_dir_path = os.path.join(
+                ROOT_DIR,
+                model_pusher_config_info[MODEL_PUSHER_EXPORT_DIR_KEY],
+                time_stamp
+            )
+            model_pusher_config=ModelPusherConfig(
+                export_dir_path=export_dir_path
+            )
+            logging.info(f"Model Pusher Config: {model_pusher_config}")
+            return model_pusher_config
         except Exception as e:
             raise HousingException(e,sys) from e
     
