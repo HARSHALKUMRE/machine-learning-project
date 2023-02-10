@@ -1,10 +1,10 @@
 numpy
 Flask
 gunicorn
-typing
-scikit-learn
+sklearn
 pandas
 PyYAML
 evidently
 dill
+matplotlib
 -e .
