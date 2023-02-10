@@ -3,11 +3,15 @@ from housing.exception import HousingException
 from housing.logger import logging
 from housing.config.configuration import Configuration
 from housing.component.data_transformation import DataTransformation
+import os
 
 def main():
     try:
-        training_pipeline = TrainingPipeline()
-        training_pipeline.run_pipeline()
+        config_path = os.path.join("config", "config.yaml")
+        training_pipeline = TrainingPipeline(Configuration(config_file_path=config_path))
+        #training_pipeline.run_pipeline()
+        training_pipeline.start()
+        logging.info("main function execution completed.")
         #data_validation_config = Configuration().get_data_validation_config()
         #print(data_validation_config)
         
